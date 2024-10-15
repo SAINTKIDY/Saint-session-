@@ -1,0 +1,139 @@
+/* General Styling for Dark Mode */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Completely dark background */
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+/* Navbar Styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1e1e1e;
+    padding: 0 20px;
+    height: 60px;
+}
+
+.logo h2 {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.8rem;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    padding: 0 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #00ff99; /* Glowing green effect on hover */
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Glowing Button Containers */
+.container {
+    display: flex;
+    flex-direction: column; /* Align buttons vertically */
+    align-items: center;
+    margin-top: 50px;
+}
+
+.btn {
+    text-align: center;
+    padding: 20px 40px;
+    margin: 20px 0; /* Space between each button */
+    font-size: 1.5rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    background-color: #1e1e1e;
+    border: 2px solid #00ff99;
+    transition: all 0.3s ease;
+    position: relative;
+    width: 200px; /* Fixed width for uniform button sizes */
+}
+
+.glow {
+    box-shadow: 0 0 15px orange, 0 0 20px orange, 0 0 30px orange;
+}
+
+.btn:hover {
+    color: #00ff99;
+    box-shadow: 0 0 20px #00ff99, 0 0 40px #00ff99, 0 0 60px #00ff99;
+    transform: scale(1.1);
+}
+
+/* Responsive for Mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        right: 0;
+        height: 100vh;
+        top: 0;
+        background-color: #1e1e1e;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+
+    .burger {
+        display: block;
+    }
+
+    .nav-active .nav-links {
+        transform: translateX(0%);
+    }
+
+    .nav-active .nav-links li {
+        opacity: 1;
+        transition: opacity 0.5s ease-in;
+    }
+
+    .nav-active .burger .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .nav-active .burger .line2 {
+        opacity: 0;
+    }
+
+    .nav-active .burger .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
